@@ -1,0 +1,430 @@
+/* styles.css */
+
+/* CSS Variables */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #2c2c2c;
+    --accent-color: #d4af37;
+    --text-color: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --bg-color: #0f0f0f;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --max-width: 1200px;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo a:hover {
+    opacity: 0.8;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+}
+
+/* Hero Section */
+.hero {
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.hero-image {
+    margin: 2rem 0;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Intro Section */
+.intro {
+    padding: 3rem 0;
+    background-color: var(--secondary-color);
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Features Section */
+.features {
+    padding: 4rem 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.feature-card h2,
+.feature-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Buttons in Feature Cards */
+.feature-card button {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem 0.25rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.feature-card .button-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.feature-card button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.feature-card button a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.feature-card button:hover a {
+    color: var(--primary-color);
+}
+
+/* Quote Section */
+.quote {
+    padding: 4rem 0;
+    background-color: var(--secondary-color);
+}
+
+blockquote {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+blockquote p {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+blockquote footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+blockquote cite {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-style: normal;
+    font-weight: bold;
+}
+
+blockquote span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* About Page Specific Styles */
+.about-hero {
+    padding: 4rem 0 2rem;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    color: var(--accent-color);
+}
+
+.about-content {
+    padding: 4rem 0;
+}
+
+.about-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.about-text-content {
+    text-align: left;
+}
+
+.about-text-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+
+.tagline-about {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+.about-features {
+    padding: 4rem 0;
+    background-color: var(--secondary-color);
+}
+
+.about-features h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 3rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 2px solid var(--accent-color);
+    margin-top: auto;
+}
+
+footer p {
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    blockquote p {
+        font-size: 1.4rem;
+    }
+
+    .about-hero h1 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .about-text {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-text-content {
+        text-align: center;
+    }
+
+    .tagline-about {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card,
+.hero,
+.intro,
+.quote,
+.about-content {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
