@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add active state to current page in navigation
     const currentPath = window.location.pathname;
     document.querySelectorAll('.nav-links a').forEach(link => {
-        if (link.getAttribute('href') === currentPath || 
+        if (link.getAttribute('href') === currentPath ||
             (currentPath === '/' && link.getAttribute('href') === '/') ||
             (currentPath.includes('/about') && link.getAttribute('href') === '/about')) {
             link.classList.add('active');
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const setupMobileMenu = () => {
         const navbar = document.querySelector('.navbar');
         const navLinks = document.querySelector('.nav-links');
-        
+
         // Check if we're on mobile
         if (window.innerWidth <= 768) {
             // Mobile menu functionality can be added here if needed
@@ -64,22 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     window.addEventListener('resize', setupMobileMenu);
 
-    // Add parallax effect to hero image
-    const heroImage = document.querySelector('.hero-image img');
-    if (heroImage) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * 0.3;
-            heroImage.style.transform = `translateY(${rate}px)`;
-        });
-    }
+    // Parallax effect removed - hero image should stay static
 
     // Add hover effect sound or visual feedback (optional enhancement)
     document.querySelectorAll('.feature-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.style.boxShadow = '0 8px 30px rgba(212, 175, 55, 0.3)';
         });
-        
+
         card.addEventListener('mouseleave', () => {
             card.style.boxShadow = 'none';
         });
@@ -88,15 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Easter egg: Konami code
     let konamiCode = [];
     const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-    
+
     document.addEventListener('keydown', (e) => {
         konamiCode.push(e.key);
         konamiCode = konamiCode.slice(-konamiSequence.length);
-        
+
         if (konamiCode.join(',') === konamiSequence.join(',')) {
             // Easter egg activated!
             document.body.style.animation = 'rainbow 2s linear infinite';
-            
+
             // Add rainbow animation to CSS if not already present
             if (!document.querySelector('#rainbow-style')) {
                 const style = document.createElement('style');
@@ -109,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 document.head.appendChild(style);
             }
-            
+
             setTimeout(() => {
                 document.body.style.animation = '';
             }, 5000);

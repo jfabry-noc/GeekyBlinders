@@ -233,6 +233,36 @@ blockquote {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    padding: 3rem 2.5rem;
+    background-color: var(--primary-color);
+    border: 3px double var(--accent-color);
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+/* Decorative corners */
+blockquote::before,
+blockquote::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent-color);
+}
+
+blockquote::before {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+blockquote::after {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
 }
 
 blockquote p {
@@ -241,12 +271,44 @@ blockquote p {
     color: var(--text-color);
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* Ornamental quotes */
+blockquote p::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--accent-color);
+    opacity: 0.3;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: Georgia, serif;
+}
+
+blockquote p::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--accent-color);
+    opacity: 0.3;
+    position: absolute;
+    bottom: -40px;
+    right: -10px;
+    font-family: Georgia, serif;
 }
 
 blockquote footer {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+    padding-top: 1rem;
+    border-top: 1px solid var(--accent-color);
+    margin-top: 1rem;
 }
 
 blockquote cite {
@@ -254,11 +316,14 @@ blockquote cite {
     color: var(--accent-color);
     font-style: normal;
     font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 blockquote span {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    font-style: italic;
 }
 
 /* About Page Specific Styles */
@@ -373,6 +438,21 @@ footer p {
 
     blockquote p {
         font-size: 1.4rem;
+    }
+
+    blockquote {
+        padding: 2rem 1.5rem;
+    }
+
+    blockquote p::before,
+    blockquote p::after {
+        font-size: 3rem;
+    }
+
+    blockquote::before,
+    blockquote::after {
+        width: 30px;
+        height: 30px;
     }
 
     .about-hero h1 {
